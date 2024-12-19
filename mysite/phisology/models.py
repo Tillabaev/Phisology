@@ -24,10 +24,7 @@ class MainWorld(models.Model):
     subscription = models.PositiveSmallIntegerField(help_text='количества людей на которые вы подписаны ')
 
 
-
-
 class Review(models.Model):
-
     feedback = models.CharField(max_length=35,help_text='отзывы моих клиентов')
 
 
@@ -41,11 +38,12 @@ class Consultation(models.Model):
     description = models.TextField(null=True, blank=True)
     duration = models.CharField(max_length=512)
     format = models.CharField(max_length=512)
-    feedback = models.CharField(max_length=512)
+    feedback = models.CharField(max_length=512, help_text='Обратная свзять')
     price = models.PositiveSmallIntegerField(default=100)
 
     def __str__(self):
         return f'{self.title} - {self.price}'
+
 
 class Consultation_Keys(models.Model):
     consultation = models.ForeignKey(Consultation, related_name='con_keys', on_delete=models.CASCADE)

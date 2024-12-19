@@ -8,5 +8,8 @@ urlpatterns = [
 
     path('review/',ImgReviewAPIView.as_view(),name = 'review'),
 
-]
+    path('consultation/', ConsultationViewSet.as_view(), name='consultation-list'),
 
+    path('registration/', RegistrationViewSet.as_view(), name='registration-create'),
+
+]

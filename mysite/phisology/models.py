@@ -10,12 +10,16 @@ class AboutMe(models.Model):
     back_round_img = models.ImageField(upload_to='about_me/')
 
 
+    def __str__(self):
+        return f'{self.profession}'
+
 class MainWorld(models.Model):
     profession = models.CharField(max_length=35)
     main_text = models.CharField(max_length=100)
     publication = models.PositiveSmallIntegerField(help_text='количества публикации')
     follower = models.CharField(max_length=25,help_text='количества подписчиков')
     subscription = models.PositiveSmallIntegerField(help_text='количества людей на которые вы подписаны ')
+
 
 
 
@@ -27,8 +31,6 @@ class Review(models.Model):
 class Img(models.Model):
     img = models.ImageField(upload_to='review_img/')
     review_connect = models.ForeignKey(Review,related_name='photo',on_delete=models.CASCADE)
-
-
 
 
 class Consultation(models.Model):

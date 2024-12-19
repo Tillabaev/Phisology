@@ -17,3 +17,12 @@ class MainWorldListAPIView(generics.ListAPIView):
 class ImgReviewAPIView(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ImgReviewSerializer
+
+
+class ConsultationViewSet(generics.ListAPIView):
+    queryset = Consultation.objects.all()
+    serializer_class = ConsultationSerializer
+
+class RegistrationViewSet(generics.CreateAPIView):
+    queryset = Registration.objects.all()
+    serializer_class = RegistrationSerializer

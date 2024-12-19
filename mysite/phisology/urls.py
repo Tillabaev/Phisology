@@ -12,4 +12,5 @@ urlpatterns = [
 
     path('registration/', RegistrationViewSet.as_view(), name='registration-create'),
 
+    path('img/',ImgSimpleList.as_view(),name = 'img')
 ]

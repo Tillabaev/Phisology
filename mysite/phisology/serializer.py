@@ -16,14 +16,14 @@ class MainWorldSerializer(serializers.ModelSerializer):
 class ImgSerializer(serializers.ModelSerializer):
     class Meta:
         model = Img
-        fields = ['id','img']
+        fields = ['img']
 
 
 class ImgReviewSerializer(serializers.ModelSerializer):
     photo = ImgSerializer(read_only=True,many=True)
     class Meta:
         model = Review
-        fields = ['feedback','phono',]
+        fields = ['feedback','photo',]
 
 
 
@@ -44,4 +44,4 @@ class ConsultationSerializer(serializers.ModelSerializer):
 class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
-        fields = ['id', 'first_name', 'last_name', 'email', 'number', 'country']
+        fields = ['id', 'first_name', 'last_name', 'email', 'number', 'telegram','country']

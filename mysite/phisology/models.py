@@ -1,4 +1,7 @@
+from enum import unique
+
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 
@@ -15,7 +18,7 @@ class AboutMe(models.Model):
 
 class MainWorld(models.Model):
     profession = models.CharField(max_length=35)
-    main_text = models.CharField(max_length=100)
+    main_text = models.CharField(max_length=500)
     publication = models.PositiveSmallIntegerField(help_text='количества публикации')
     follower = models.CharField(max_length=25,help_text='количества подписчиков')
     subscription = models.PositiveSmallIntegerField(help_text='количества людей на которые вы подписаны ')
@@ -52,10 +55,11 @@ class Consultation_Keys(models.Model):
 
 class Registration(models.Model):
     first_name = models.CharField(max_length=32)
-    last_name = models.CharField(max_length=32,null=True,blank=True)
-    email = models.EmailField(unique=True, null=True, blank=True)
-    number = models.IntegerField()
-    country = models.CharField(max_length=32, null=True, blank=True)
+    last_name = models.CharField(max_length=32)
+    email = models.EmailField(unique=True)
+    number = PhoneNumberField()
+    telegram = models.CharField(max_length=25,null=True,blank=True)
+    country = models.CharField(max_length=32)
 
     def __str__(self):
         return f'{self.first_name} - {self.email}'

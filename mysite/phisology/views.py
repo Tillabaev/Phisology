@@ -1,7 +1,19 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics,viewsets
 from .models import *
 from .serializer import *
+from rest_framework.pagination import PageNumberPagination
+from .pagination import ImgPagination
+
+
+class ImgSimpleList(generics.ListAPIView):
+    queryset = Img.objects.all()
+    serializer_class = ImgSerializer
+    pagination_class = ImgPagination
+
+class ImgReviewAPIView(generics.ListAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ImgReviewSerializer
 
 
 class AboutMeListAPIView(generics.ListAPIView):
@@ -14,14 +26,12 @@ class MainWorldListAPIView(generics.ListAPIView):
     serializer_class = MainWorldSerializer
 
 
-class ImgReviewAPIView(generics.ListAPIView):
-    queryset = Review.objects.all()
-    serializer_class = ImgReviewSerializer
 
 
 class ConsultationViewSet(generics.ListAPIView):
     queryset = Consultation.objects.all()
     serializer_class = ConsultationSerializer
+
 
 class RegistrationViewSet(generics.CreateAPIView):
     queryset = Registration.objects.all()

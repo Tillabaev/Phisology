@@ -12,5 +12,10 @@ urlpatterns = [
 
     path('registration/', RegistrationViewSet.as_view(), name='registration-create'),
 
-    path('img/',ImgSimpleList.as_view(),name = 'img')
+    path('img/',ImgSimpleList.as_view(),name = 'img'),
+
+    path('my_services/', My_ServicesViewSet.as_view(), name='my-services'),
+
+    path('services/<int:pk>/', ServicesViewSet.as_view(), name='service-detail'),
+
 ]

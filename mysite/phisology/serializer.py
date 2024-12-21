@@ -45,3 +45,26 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
         fields = ['id', 'first_name', 'last_name', 'email', 'number', 'telegram','country']
+
+
+
+
+
+class ServicesDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Services
+        fields = ['id', 'name_services', 'description', 'price']
+
+
+class ServicesListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Services
+        fields = ['id', 'name_services',]
+
+
+class My_ServicesSerializer(serializers.ModelSerializer):
+    services = ServicesListSerializer(many=True)
+    class Meta:
+        model = My_Services
+        fields = ['title', 'services']
+

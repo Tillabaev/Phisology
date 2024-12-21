@@ -14,6 +14,11 @@ urlpatterns = [
 
     path('img/',ImgSimpleList.as_view(),name = 'img'),
 
-    path('ser/',SeriaView.as_view({'get':'list','put':'create'}),name = 'Seria'),
+
+
+    path('my_services/', My_ServicesViewSet.as_view(), name='my-services'),
+
+    path('services/<int:pk>/', ServicesViewSet.as_view(), name='service-detail'),
+
 
 ]

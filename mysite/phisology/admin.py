@@ -5,6 +5,13 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin,TranslationInlineModelAdmin
 
 
+class ServicesInlines(admin.TabularInline):
+    model = Services
+    extra = 1
+
+class ServicesAdmin(admin.ModelAdmin):
+    inlines = [ServicesInlines]
+
 
 class ImgInlines(admin.TabularInline):
     model = Img
@@ -71,4 +78,5 @@ class MainWorldAdmin(TranslationAdmin):
 
 
 admin.site.register(Registration)
+admin.site.register(My_Services, ServicesAdmin)
 

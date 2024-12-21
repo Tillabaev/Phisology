@@ -38,5 +38,14 @@ class RegistrationViewSet(generics.CreateAPIView):
     serializer_class = RegistrationSerializer
 
 
-class SeriaView(viewsets.ModelViewSet):
-    serializer_class = Seria
+
+class My_ServicesViewSet(generics.ListAPIView):
+    queryset = My_Services.objects.all()
+    serializer_class = My_ServicesSerializer
+
+
+class ServicesViewSet(generics.RetrieveAPIView):
+    queryset = Services.objects.all()
+    serializer_class = ServicesDetailSerializer
+
+

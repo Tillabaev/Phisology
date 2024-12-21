@@ -36,3 +36,7 @@ class ConsultationViewSet(generics.ListAPIView):
 class RegistrationViewSet(generics.CreateAPIView):
     queryset = Registration.objects.all()
     serializer_class = RegistrationSerializer
+
+
+class SeriaView(viewsets.ModelViewSet):
+    serializer_class = Seria

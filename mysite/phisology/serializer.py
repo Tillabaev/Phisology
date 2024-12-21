@@ -45,3 +45,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
         fields = ['id', 'first_name', 'last_name', 'email', 'number', 'telegram','country']
+
+
+class Seria(serializers.Serializer):
+    name = serializers.CharField(max_length=25)
+

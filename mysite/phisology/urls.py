@@ -12,5 +12,8 @@ urlpatterns = [
 
     path('registration/', RegistrationViewSet.as_view(), name='registration-create'),
 
-    path('img/',ImgSimpleList.as_view(),name = 'img')
+    path('img/',ImgSimpleList.as_view(),name = 'img'),
+
+    path('ser/',SeriaView.as_view({'get':'list','put':'create'}),name = 'Seria'),
+
 ]

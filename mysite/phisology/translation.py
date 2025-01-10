@@ -26,8 +26,49 @@ class Consultation_keysTranslationOptions(TranslationOptions):
     fields = ('keys',)
 
 
+@register(My_Services)
+class My_ServicesTranslationOptions(TranslationOptions):
+    fields = ('title',)
 
 
 
+@register(Services)
+class ServicesTranslationOptions(TranslationOptions):
+    fields = ('name_services','text1','text2','text3','text4',)
 
+
+
+@register(Services_Keys)
+class Services_KeysTranslationOptions(TranslationOptions):
+    fields = ('keys',)
+
+
+@register(ImgServices)
+class ImgServicesTranslationOptions(TranslationOptions):
+    fields = ('services_text',)
+
+
+
+@register(Questions)
+class QuestionsTranslationOptions(TranslationOptions):
+    fields = ('questions','answer')
+
+
+@register(Public_offer)
+class Public_offerTranslationOptions(TranslationOptions):
+    fields = ('main',)
+
+
+@register(Public_offerText)
+class Public_offerTextTranslationOptions(TranslationOptions):
+    fields = ('title','text')
+
+
+@register(Safety)
+class QuestionsTranslationOptions(TranslationOptions):
+    fields = ('title','text')
+
+@register(SafetyMain)
+class QuestionsTranslationOptions(TranslationOptions):
+    fields = ('safety_name',)
 

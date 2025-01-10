@@ -5,12 +5,7 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin,TranslationInlineModelAdmin
 
 
-class ServicesInlines(admin.TabularInline):
-    model = Services
-    extra = 1
 
-class ServicesAdmin(admin.ModelAdmin):
-    inlines = [ServicesInlines]
 
 
 class ImgInlines(admin.TabularInline):
@@ -51,7 +46,8 @@ class ConsultationAdmin(TranslationAdmin):
         }
 
 
-@admin.register(AboutMe)
+@admin.register(AboutMe,MainWorld,My_Services,Questions,
+                Safety,Public_offer,Public_offerText,SafetyMain)
 class AboutMeAdmin(TranslationAdmin):
     class Media:
         js = (
@@ -64,8 +60,18 @@ class AboutMeAdmin(TranslationAdmin):
         }
 
 
-@admin.register(MainWorld)
-class MainWorldAdmin(TranslationAdmin):
+class Services_KeysInline(TranslationInlineModelAdmin,admin.TabularInline):
+    model = Services_Keys
+    extra = 0
+
+class ImgServicesInline(TranslationInlineModelAdmin,admin.TabularInline):
+    model = ImgServices
+    extra = 0
+
+
+@admin.register(Services)
+class AboutMeAdmin(TranslationAdmin):
+    inlines = [Services_KeysInline,ImgServicesInline]
     class Media:
         js = (
             'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
@@ -76,7 +82,6 @@ class MainWorldAdmin(TranslationAdmin):
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
 
-
 admin.site.register(Registration)
-admin.site.register(My_Services, ServicesAdmin)
+admin.site.register(Pattern)
 

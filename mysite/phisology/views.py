@@ -6,29 +6,29 @@ from rest_framework.pagination import PageNumberPagination
 from .pagination import ImgPagination
 
 
-class ImgSimpleList(generics.ListAPIView):
+class ImgSimpleList(generics.RetrieveAPIView):
     queryset = Img.objects.all()
     serializer_class = ImgSerializer
     pagination_class = ImgPagination
 
-class ImgReviewAPIView(generics.ListAPIView):
+class ImgReviewAPIView(generics.RetrieveAPIView):
     queryset = Review.objects.all()
     serializer_class = ImgReviewSerializer
 
 
-class AboutMeListAPIView(generics.ListAPIView):
+class AboutMeListAPIView(generics.RetrieveAPIView):
     queryset = AboutMe.objects.all()
     serializer_class = AboutMeSerializer
 
 
-class MainWorldListAPIView(generics.ListAPIView):
+class MainWorldListAPIView(generics.RetrieveAPIView):
     queryset = MainWorld.objects.all()
     serializer_class = MainWorldSerializer
 
 
 
 
-class ConsultationViewSet(generics.ListAPIView):
+class ConsultationViewSet(generics.RetrieveAPIView):
     queryset = Consultation.objects.all()
     serializer_class = ConsultationSerializer
 
@@ -41,11 +41,39 @@ class RegistrationViewSet(generics.CreateAPIView):
 
 class My_ServicesViewSet(generics.ListAPIView):
     queryset = My_Services.objects.all()
-    serializer_class = My_ServicesSerializer
+    serializer_class = MyServicesSerializer
 
 
-class ServicesViewSet(generics.RetrieveAPIView):
+class ServicesViewSet(generics.ListAPIView):
     queryset = Services.objects.all()
-    serializer_class = ServicesDetailSerializer
+    serializer_class = ServicesListSerializer
 
+
+class ServicesDetailAPIView(generics.RetrieveAPIView):
+    queryset = Services.objects.all()
+    serializer_class = ServicesSerializer
+
+
+class QuestionsListAPIView(generics.ListAPIView):
+    queryset = Questions.objects.all()
+    serializer_class = QuestionsSerializer
+
+
+class Public_offerList(generics.ListAPIView):
+    queryset = Public_offer.objects.all()
+    serializer_class = Public_offerSerializer
+
+
+class Public_offerTextList(generics.ListAPIView):
+    queryset = Public_offerText.objects.all()
+    serializer_class = Public_offerTextSerializer
+
+
+class SafetyList(generics.ListAPIView):
+    queryset = Safety.objects.all()
+    serializer_class = SafetySerializer
+
+class SafetyMainListAPIView(generics.ListAPIView):
+    queryset = SafetyMain.objects.all()
+    serializer_class = SafetyMainSerializer
 

@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY req.txt /app/
-
+RUN pip install setuptools
 RUN pip install gunicorn && \
     pip install --upgrade pip && \
     pip install -r req.txt

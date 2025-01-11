@@ -1,10 +1,19 @@
-from enum import unique
 
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 
+class MainWorld(models.Model): # 
+    profession = models.CharField(max_length=35)
+    main_text = models.CharField(max_length=500)
+    publication = models.PositiveSmallIntegerField(help_text='количества публикации')
+    follower = models.CharField(max_length=25,help_text='количества подписчиков')
+    subscription = models.PositiveSmallIntegerField(help_text='количества людей на которые вы подписаны ')
 
+    def __str__(self):
+        return f'{self.main_text}'
+
+########################################################################################
 class AboutMe(models.Model):
     bio = models.TextField()
     profession = models.CharField(max_length=35)
@@ -16,22 +25,8 @@ class AboutMe(models.Model):
     def __str__(self):
         return f'{self.profession}'
 
-class MainWorld(models.Model):
-    profession = models.CharField(max_length=35)
-    main_text = models.CharField(max_length=500)
-    publication = models.PositiveSmallIntegerField(help_text='количества публикации')
-    follower = models.CharField(max_length=25,help_text='количества подписчиков')
-    subscription = models.PositiveSmallIntegerField(help_text='количества людей на которые вы подписаны ')
 
-
-class Review(models.Model):
-    feedback = models.CharField(max_length=35,help_text='отзывы моих клиентов')
-
-
-class Img(models.Model):
-    img = models.ImageField(upload_to='review_img/')
-    review_connect = models.ForeignKey(Review,related_name='photo',on_delete=models.CASCADE)
-
+####################################################################################
 
 class Consultation(models.Model):
     title = models.CharField(max_length=512)
@@ -44,7 +39,6 @@ class Consultation(models.Model):
     def __str__(self):
         return f'{self.title} - {self.price}'
 
-
 class Consultation_Keys(models.Model):
     consultation = models.ForeignKey(Consultation, related_name='con_keys', on_delete=models.CASCADE)
     keys = models.CharField(max_length=512)
@@ -53,7 +47,7 @@ class Consultation_Keys(models.Model):
     def __str__(self):
         return f'{self.consultation}'
 
-
+###########################################################################################
 
 
 class Registration(models.Model):
@@ -68,18 +62,15 @@ class Registration(models.Model):
         return f'{self.first_name} - {self.email}'
 
 
-class Questions(models.Model):
-    questions = models.CharField(max_length=100,null=True,blank=True)
-    answer = models.TextField(null=True,blank=True)
 
-    def __str__(self):
-        return f'{self.questions}'
+###########################################################################################
 
 class My_Services(models.Model):
     title = models.CharField(max_length=32)
 
     def __str__(self):
         return f'{self.title}'
+
 
 class Pattern(models.Model):
     PATTERN = (
@@ -90,6 +81,7 @@ class Pattern(models.Model):
 
     def __str__(self):
         return f'{self.patterns}'
+
 
 class Services(models.Model):
     my_services = models.ForeignKey(My_Services, related_name='services', on_delete=models.CASCADE,null=True,blank=True)
@@ -104,6 +96,7 @@ class Services(models.Model):
     def __str__(self):
         return f'{self.name_services} - {self.price}'
 
+
 class Services_Keys(models.Model):
     services_title = models.ForeignKey(Services, related_name='services_keys', on_delete=models.CASCADE)
     keys = models.CharField(max_length=512,null=True,blank=True)
@@ -111,14 +104,41 @@ class Services_Keys(models.Model):
     def __str__(self):
         return f'{self.services_title}'
 
+
 class ImgServices(models.Model):
     img = models.ImageField(upload_to='services_photo/')
     services_connect = models.ForeignKey(Services,related_name='photo',on_delete=models.CASCADE)
     services_text = models.TextField(null=True,blank=True)
-
-
+    
     def __str__(self):
         return f'{self.services_connect} - {self.services_text}'
+
+
+
+###############################################################################################################
+
+
+class Review(models.Model):
+    feedback = models.CharField(max_length=35,help_text='отзывы моих клиентов')
+
+
+class Img(models.Model):
+    img = models.ImageField(upload_to='review_img/')
+    review_connect = models.ForeignKey(Review,related_name='photo',on_delete=models.CASCADE)
+
+
+################################################################################################################
+
+
+class Questions(models.Model):
+    questions = models.CharField(max_length=100,null=True,blank=True)
+    answer = models.TextField(null=True,blank=True)
+
+    def __str__(self):
+        return f'{self.questions}'
+
+
+#################################################################################################################
 
 
 class Public_offer(models.Model):
@@ -127,6 +147,7 @@ class Public_offer(models.Model):
     def __str__(self):
         return f'{self.main}'
 
+
 class Public_offerText(models.Model):
     title = models.CharField(max_length = 500,null=True,blank=True)
     text = models.TextField(null=True,blank=True)
@@ -134,13 +155,24 @@ class Public_offerText(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+
 class SafetyMain(models.Model):
     safety_name = models.CharField(max_length=55)
 
     def __str__(self):
         return f'{self.safety_name}'
+
+
 class Safety(models.Model):
     title = models.CharField(max_length = 250,null=True,blank=True)
     text = models.TextField(null=True,blank=True)
     def __str__(self):
         return f'{self.title}'
+
+
+
+
+
+
+

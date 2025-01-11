@@ -2,22 +2,21 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('<int:pk>/',MainWorldListAPIView.as_view(),name = 'main_world'),
+    path('main_world/',MainWorldListAPIView.as_view(),name = 'main_world'),
 
-    path('me/<int:pk>/',AboutMeListAPIView.as_view(),name = 'about_me'),
+    path('about_me/',AboutMeListAPIView.as_view(),name = 'about_me'),
 
-    path('review/<int:pk>/',ImgReviewAPIView.as_view(),name = 'review'),
+    path('review/',ImgReviewAPIView.as_view(),name = 'review'),
 
-    path('consultation/<int:pk>/', ConsultationViewSet.as_view(), name='consultation-list'),
+    path('consultation/', ConsultationViewSet.as_view(), name='consultation-list'),
 
-    path('registration/<int:pk>/', RegistrationViewSet.as_view(), name='registration-create'),
-
+    path('registration/', RegistrationViewSet.as_view(), name='registration-create'),
 
     path('my_services/', My_ServicesViewSet.as_view(), name='my-services'),
 
-    path('services/', ServicesViewSet.as_view(), name='service-list'),
+    path('services_list/', ServicesViewSet.as_view(), name='service-list'),
 
-    path('services/<int:pk>/', ServicesDetailAPIView.as_view(), name='service-detail'),
+    path('services_detail/<int:pk>/', ServicesDetailAPIView.as_view(), name='service-detail'),
 
     path('img/',ImgSimpleList.as_view(),name = 'img'),
 

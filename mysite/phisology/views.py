@@ -6,26 +6,13 @@ from rest_framework.pagination import PageNumberPagination
 from .pagination import ImgPagination
 
 
-class ImgSimpleList(generics.RetrieveAPIView):
-    queryset = Img.objects.all()
-    serializer_class = ImgSerializer
-    pagination_class = ImgPagination
-
-class ImgReviewAPIView(generics.RetrieveAPIView):
-    queryset = Review.objects.all()
-    serializer_class = ImgReviewSerializer
-
-
-class AboutMeListAPIView(generics.RetrieveAPIView):
-    queryset = AboutMe.objects.all()
-    serializer_class = AboutMeSerializer
-
-
 class MainWorldListAPIView(generics.RetrieveAPIView):
     queryset = MainWorld.objects.all()
     serializer_class = MainWorldSerializer
 
-
+class AboutMeListAPIView(generics.RetrieveAPIView):
+    queryset = AboutMe.objects.all()
+    serializer_class = AboutMeSerializer
 
 
 class ConsultationViewSet(generics.RetrieveAPIView):
@@ -39,9 +26,18 @@ class RegistrationViewSet(generics.CreateAPIView):
 
 
 
-class My_ServicesViewSet(generics.ListAPIView):
-    queryset = My_Services.objects.all()
-    serializer_class = MyServicesSerializer
+class ImgSimpleList(generics.RetrieveAPIView):
+    queryset = Img.objects.all()
+    serializer_class = ImgSerializer
+    pagination_class = ImgPagination
+
+
+class ImgReviewAPIView(generics.RetrieveAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ImgReviewSerializer
+
+
+
 
 
 class ServicesViewSet(generics.ListAPIView):
@@ -52,6 +48,15 @@ class ServicesViewSet(generics.ListAPIView):
 class ServicesDetailAPIView(generics.RetrieveAPIView):
     queryset = Services.objects.all()
     serializer_class = ServicesSerializer
+
+
+
+
+class My_ServicesViewSet(generics.ListAPIView):
+    queryset = My_Services.objects.all()
+    serializer_class = MyServicesSerializer
+
+
 
 
 class QuestionsListAPIView(generics.ListAPIView):

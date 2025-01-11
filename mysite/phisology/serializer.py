@@ -1,30 +1,15 @@
 from rest_framework import serializers
 from .models import *
 
-class AboutMeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = AboutMe
-        fields = ['bio','profession','about_me','photo','back_round_img']
-
-
 class MainWorldSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainWorld
         fields = ['profession','main_text','publication','follower','subscription']
 
-
-class ImgSerializer(serializers.ModelSerializer):
+class AboutMeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Img
-        fields = ['img']
-
-
-class ImgReviewSerializer(serializers.ModelSerializer):
-    photo = ImgSerializer(read_only=True,many=True)
-    class Meta:
-        model = Review
-        fields = ['feedback','photo',]
-
+        model = AboutMe
+        fields = ['bio','profession','about_me','photo','back_round_img']
 
 
 class Consultation_KeysSerializer(serializers.ModelSerializer):
@@ -40,10 +25,14 @@ class ConsultationSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'description', 'con_keys', 'duration', 'format', 'feedback', 'price']
 
 
+
+
 class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
         fields = ['id', 'first_name', 'last_name', 'email', 'number', 'telegram','country']
+
+
 
 
 class ImgServicesSerializer(serializers.ModelSerializer):
@@ -84,6 +73,20 @@ class ServicesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Services
         fields = ['name_services','text1','text2','text3','text4','price','patterns','photo','services_keys']
+
+
+
+
+class ImgSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Img
+        fields = ['img']
+
+
+class ImgReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['feedback']
 
 
 

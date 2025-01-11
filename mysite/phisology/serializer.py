@@ -33,7 +33,6 @@ class Consultation_KeysSerializer(serializers.ModelSerializer):
         fields = ['id', 'keys']
 
 
-
 class ConsultationSerializer(serializers.ModelSerializer):
     con_keys = Consultation_KeysSerializer(many=True)
     class Meta:
@@ -45,6 +44,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
         fields = ['id', 'first_name', 'last_name', 'email', 'number', 'telegram','country']
+
 
 class ImgServicesSerializer(serializers.ModelSerializer):
     class Meta:

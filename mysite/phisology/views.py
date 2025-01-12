@@ -6,16 +6,16 @@ from rest_framework.pagination import PageNumberPagination
 from .pagination import ImgPagination
 
 
-class MainWorldListAPIView(generics.RetrieveAPIView):
+class MainWorldListAPIView(generics.ListAPIView):
     queryset = MainWorld.objects.all()
     serializer_class = MainWorldSerializer
 
-class AboutMeListAPIView(generics.RetrieveAPIView):
+class AboutMeListAPIView(generics.ListAPIView):
     queryset = AboutMe.objects.all()
     serializer_class = AboutMeSerializer
 
 
-class ConsultationViewSet(generics.RetrieveAPIView):
+class ConsultationViewSet(generics.ListAPIView):
     queryset = Consultation.objects.all()
     serializer_class = ConsultationSerializer
 
@@ -26,13 +26,13 @@ class RegistrationViewSet(generics.CreateAPIView):
 
 
 
-class ImgSimpleList(generics.RetrieveAPIView):
+class ImgSimpleList(generics.ListAPIView):
     queryset = Img.objects.all()
     serializer_class = ImgSerializer
     pagination_class = ImgPagination
 
 
-class ImgReviewAPIView(generics.RetrieveAPIView):
+class ImgReviewAPIView(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ImgReviewSerializer
 

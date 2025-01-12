@@ -72,7 +72,7 @@ class ServicesSerializer(serializers.ModelSerializer):
     patterns = PatternsSerializer()
     class Meta:
         model = Services
-        fields = ['name_services','text1','text2','text3','text4','price','patterns','photo','services_keys']
+        fields = ['name_services','text1','text2','text3','text4','price','photo','services_keys']
 
 
 

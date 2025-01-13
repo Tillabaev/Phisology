@@ -30,7 +30,7 @@ class ConsultationSerializer(serializers.ModelSerializer):
 class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
-        fields = ['id', 'first_name', 'last_name', 'email', 'number', 'telegram','country']
+        fields = ['id', 'first_name', 'last_name', 'email', 'number', 'telegram','country',]
 
 
 
@@ -69,7 +69,7 @@ class ServicesSerializer(serializers.ModelSerializer):
     services_keys = Services_KeysSerializer(many=True)
     class Meta:
         model = Services
-        fields = ['name_services','text1','text2','text3','text4','price','photo','services_keys']
+        fields = ['name_services','text1','text2','text3','text4','price','photo','services_keys','main_img']
 
 
 class ImgSerializer(serializers.ModelSerializer):

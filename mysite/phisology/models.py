@@ -91,7 +91,7 @@ class Services(models.Model):
     text3 = models.TextField(null=True,blank=True)
     text4 = models.TextField(null=True,blank=True)
     pattern = models.ForeignKey(Pattern,on_delete=models.CASCADE)
-
+    main_img = models.ImageField(upload_to='img/',null=True,blank=True)
 
     def __str__(self):
         return f'{self.name_services} - {self.price}'

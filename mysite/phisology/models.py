@@ -71,7 +71,15 @@ class My_Services(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+class Pattern(models.Model):
+    PATTERN = (
+        ('pattern 1' , 'pattern 1'),
+        ('pattern 2 ','pattern 2 '),
+    )
+    patterns = models.CharField(max_length=25,choices=PATTERN)
 
+    def __str__(self):
+        return f'{self.patterns}'
 
 
 class Services(models.Model):
@@ -82,22 +90,16 @@ class Services(models.Model):
     text2 = models.TextField(null=True,blank=True)
     text3 = models.TextField(null=True,blank=True)
     text4 = models.TextField(null=True,blank=True)
+    pattern = models.ForeignKey(Pattern,on_delete=models.CASCADE)
 
 
     def __str__(self):
         return f'{self.name_services} - {self.price}'
 
 
-class Pattern(models.Model):
-    PATTERN = (
-        ('pattern 1' , 'pattern 1'),
-        ('pattern 2 ','pattern 2 '),
-    )
-    patterns = models.CharField(max_length=25,choices=PATTERN)
-    services_connect = models.ManyToManyField(Services,related_name='pattern')
 
-    def __str__(self):
-        return f'{self.patterns}'
+
+
 
 class Services_Keys(models.Model):
     services_title = models.ForeignKey(Services, related_name='services_keys', on_delete=models.CASCADE)

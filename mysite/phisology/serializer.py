@@ -47,17 +47,15 @@ class Services_KeysSerializer(serializers.ModelSerializer):
         fields=  ['services_title','keys']
 
 
-class PatternsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Pattern
-        fields = ['patterns']
-
-
 class ServicesListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Services
-        fields = ['id','name_services']
+        fields = ['id','name_services','pattern']
 
+class PatternSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pattern
+        fields = ['patterns']
 
 class  MyServicesSerializer(serializers.ModelSerializer):
     services = ServicesListSerializer(many=True)
@@ -69,12 +67,9 @@ class  MyServicesSerializer(serializers.ModelSerializer):
 class ServicesSerializer(serializers.ModelSerializer):
     photo = ImgServicesSerializer(many=True)
     services_keys = Services_KeysSerializer(many=True)
-    patterns = PatternsSerializer()
     class Meta:
         model = Services
         fields = ['name_services','text1','text2','text3','text4','price','photo','services_keys']
-
-
 
 
 class ImgSerializer(serializers.ModelSerializer):

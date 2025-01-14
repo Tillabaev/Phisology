@@ -1,5 +1,6 @@
 
 from django.db import models
+from django.db.models import CharField
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -177,6 +178,12 @@ class Safety(models.Model):
         return f'{self.title}'
 
 
+
+class My_contact(models.Model):
+    email = CharField(max_length=35,null=True,blank=True)
+    my_phone = PhoneNumberField(null=True,blank=True)
+    name = models.CharField(max_length=100,null=True,blank=True)
+    title = models.CharField(max_length=250)
 
 
 

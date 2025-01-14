@@ -69,6 +69,8 @@ class ImgServicesInline(TranslationInlineModelAdmin,admin.TabularInline):
     extra = 0
 
 
+
+
 @admin.register(Services)
 class AboutMeAdmin(TranslationAdmin):
     inlines = [Services_KeysInline,ImgServicesInline]
@@ -84,4 +86,4 @@ class AboutMeAdmin(TranslationAdmin):
 
 admin.site.register(Registration)
 admin.site.register(Pattern)
-
+admin.site.register(My_contact)

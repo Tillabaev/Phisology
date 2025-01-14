@@ -112,3 +112,10 @@ class SafetyMainSerializer(serializers.ModelSerializer):
     class Meta:
         model = SafetyMain
         fields = ['safety_name']
+
+
+class My_contactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = My_contact
+        fields = ['email','my_phone','name','title']
+

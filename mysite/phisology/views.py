@@ -24,17 +24,11 @@ class RegistrationViewSet(generics.CreateAPIView):
     queryset = Registration.objects.all()
     serializer_class = RegistrationSerializer
 
-class ImgListView(generics.ListAPIView):
-    queryset = Img.objects.all()
-    serializer_class = ImgSerializer
 
 
 class ImgReviewAPIView(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ImgReviewSerializer
-
-
-
 
 
 class ServicesViewSet(generics.ListAPIView):
@@ -79,3 +73,6 @@ class SafetyMainListAPIView(generics.ListAPIView):
     queryset = SafetyMain.objects.all()
     serializer_class = SafetyMainSerializer
 
+class My_conactListAPIView(generics.ListAPIView):
+    queryset = My_contact.objects.all()
+    serializer_class = My_contactSerializer

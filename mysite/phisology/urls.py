@@ -28,5 +28,5 @@ urlpatterns = [
 
     path('safety/',SafetyMainListAPIView.as_view(),name = 'safety_class'),
 
-    path('img',ImgListView.as_view(),name = 'img'),
+    path('my_contact/',My_conactListAPIView.as_view(),name = 'my_contact'),
 ]

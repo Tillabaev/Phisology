@@ -79,10 +79,10 @@ class ImgSerializer(serializers.ModelSerializer):
 
 
 class ImgReviewSerializer(serializers.ModelSerializer):
+    feedback_img = ImgSerializer(many=True, read_only=True)
     class Meta:
         model = Review
-        fields = ['feedback']
-
+        fields = ['feedback','feedback_img']
 
 
 class QuestionsSerializer(serializers.ModelSerializer):

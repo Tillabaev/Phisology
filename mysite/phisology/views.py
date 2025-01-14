@@ -24,12 +24,9 @@ class RegistrationViewSet(generics.CreateAPIView):
     queryset = Registration.objects.all()
     serializer_class = RegistrationSerializer
 
-
-
-class ImgSimpleList(generics.ListAPIView):
+class ImgListView(generics.ListAPIView):
     queryset = Img.objects.all()
     serializer_class = ImgSerializer
-    pagination_class = ImgPagination
 
 
 class ImgReviewAPIView(generics.ListAPIView):

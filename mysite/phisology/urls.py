@@ -18,8 +18,6 @@ urlpatterns = [
 
     path('services_detail/<int:pk>/', ServicesDetailAPIView.as_view(), name='service-detail'),
 
-    path('img/',ImgSimpleList.as_view(),name = 'img'),
-
     path('questions/',QuestionsListAPIView.as_view(),name = 'questions'),
 
     path('public_offer/',Public_offerList.as_view(),name  = 'public_offer'),
@@ -29,4 +27,6 @@ urlpatterns = [
     path('safety/',SafetyList.as_view(),name = 'safety'),
 
     path('safety/',SafetyMainListAPIView.as_view(),name = 'safety_class'),
+
+    path('img',ImgListView.as_view(),name = 'img'),
 ]

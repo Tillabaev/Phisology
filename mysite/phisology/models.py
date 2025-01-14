@@ -130,7 +130,7 @@ class Review(models.Model):
 
 class Img(models.Model):
     img = models.ImageField(upload_to='review_img/')
-    review_connect = models.ForeignKey(Review,related_name='photo',on_delete=models.CASCADE)
+    review_connect = models.ForeignKey(Review,related_name='feedback_img',on_delete=models.CASCADE)
 
 
 ################################################################################################################

@@ -9,6 +9,8 @@ class MainWorld(models.Model): #
     publication = models.PositiveSmallIntegerField(help_text='количества публикации')
     follower = models.CharField(max_length=25,help_text='количества подписчиков')
     subscription = models.PositiveSmallIntegerField(help_text='количества людей на которые вы подписаны ')
+    main_photo = models.ImageField(upload_to='main_photo/',blank=True,null=True)
+
 
     def __str__(self):
         return f'{self.main_text}'
